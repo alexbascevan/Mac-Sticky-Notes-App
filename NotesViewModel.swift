@@ -1,4 +1,3 @@
-//
 //  NotesViewModel.swift
 //  StickyNotes
 //
@@ -18,5 +17,11 @@ class NotesViewModel: ObservableObject {
         let newNote = Note(title: title, content: content)
         // Append the new note to the notes array
         notes.append(newNote)
+    }
+
+    // Function to delete a note from the list
+    func deleteNote(note: Note) {
+        // Remove the specified note from the notes array
+        notes.removeAll { $0.id == note.id }
     }
 }

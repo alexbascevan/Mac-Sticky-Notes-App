@@ -1,4 +1,3 @@
-//
 //  Note.swift
 //  StickyNotes
 //

@@ -1,4 +1,3 @@
-//
 //  ContentView.swift
 //  StickyNotes
 //
@@ -36,6 +35,15 @@ struct ContentView: View {
                         selectedNote = note
                         newNoteTitle = note.title
                         newNoteContent = note.content
+                    }
+                    // Button to delete the note
+                    .contextMenu {
+                        Button(action: {
+                            viewModel.deleteNote(note: note) // Call the delete function in the ViewModel
+                        }) {
+                            Text("Delete Note")
+                            Image(systemName: "trash")
+                        }
                     }
                 }
                 .frame(minWidth: 200) // Minimum width for the note list
