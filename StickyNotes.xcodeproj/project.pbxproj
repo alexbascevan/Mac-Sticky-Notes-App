@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		58C528702CB6C4D400E360DD /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5286F2CB6C4C100E360DD /* NotesViewModel.swift */; };
+		58C528722CB6C50600E360DD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C528712CB6C50400E360DD /* Note.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		583413B32CB6AB33005259D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		583413A12CB6AB2F005259D6 /* StickyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		583413B22CB6AB33005259D6 /* StickyNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickyNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		583413BC2CB6AB33005259D6 /* StickyNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickyNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58C5286F2CB6C4C100E360DD /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
+		58C528712CB6C50400E360DD /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +82,8 @@
 		583413982CB6AB2F005259D6 = {
 			isa = PBXGroup;
 			children = (
+				58C528712CB6C50400E360DD /* Note.swift */,
+				58C5286F2CB6C4C100E360DD /* NotesViewModel.swift */,
 				583413A32CB6AB2F005259D6 /* StickyNotes */,
 				583413B52CB6AB33005259D6 /* StickyNotesTests */,
 				583413BF2CB6AB33005259D6 /* StickyNotesUITests */,
@@ -236,6 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58C528702CB6C4D400E360DD /* NotesViewModel.swift in Sources */,
+				58C528722CB6C50600E360DD /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
