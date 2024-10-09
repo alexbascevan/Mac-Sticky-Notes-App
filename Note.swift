@@ -7,13 +7,13 @@
 import Foundation
 
 // Model class representing a single note
-class Note: Identifiable, ObservableObject, Hashable {
+class Note: Identifiable, ObservableObject, Hashable, Codable {
     // Unique identifier for the note
     let id: UUID
     
-    // Published properties to allow UI to react to changes
-    @Published var title: String
-    @Published var content: String
+    // Properties to allow UI to react to changes
+    var title: String
+    var content: String
     
     // Initializer to set up a new note with optional title and mandatory content
     init(title: String = "", content: String) {

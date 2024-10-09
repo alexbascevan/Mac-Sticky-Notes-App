@@ -9,7 +9,17 @@ import Foundation
 // ViewModel to manage the list of notes
 class NotesViewModel: ObservableObject {
     // Published property to notify views of changes
-    @Published var notes: [Note] = []
+    @Published var notes: [Note] = [] {
+        didSet {
+            // Save notes to UserDefaults whenever they change
+            saveNotes()
+        }
+    }
+    
+    // Initializer to load notes from UserDefaults
+    init() {
+        loadNotes()
+    }
     
     // Function to add a new note with a title and content
     func addNote(title: String, content: String) {
@@ -18,10 +28,27 @@ class NotesViewModel: ObservableObject {
         // Append the new note to the notes array
         notes.append(newNote)
     }
-
-    // Function to delete a note from the list
+    
+    // Function to delete a note
     func deleteNote(note: Note) {
-        // Remove the specified note from the notes array
-        notes.removeAll { $0.id == note.id }
+        if let index = notes.firstIndex(of: note) {
+            notes.remove(at: index)
+        }
+    }
+
+    // Function to save notes to UserDefaults
+    private func saveNotes() {
+        // Convert notes to data
+        if let encoded = try? JSONEncoder().encode(notes) {
+            UserDefaults.standard.set(encoded, forKey: "notes")
+        }
+    }
+
+    // Function to load notes from UserDefaults
+    private func loadNotes() {
+        if let data = UserDefaults.standard.data(forKey: "notes"),
+           let decoded = try? JSONDecoder().decode([Note].self, from: data) {
+            notes = decoded
+        }
     }
 }
