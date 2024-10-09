@@ -1,7 +1,3 @@
-Here's a sample README for your Sticky Notes app that you can customize further based on your needs:
-
----
-
 # Sticky Notes App
 
 Welcome to the Sticky Notes App! This is a simple and user-friendly application that allows you to create, manage, and display your notes on your device and through a widget.
