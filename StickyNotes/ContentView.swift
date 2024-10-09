@@ -1,3 +1,9 @@
+//  ContentView.swift
+//  StickyNotes
+//
+//  Created by Alexander Bascevan on 2024-10-09.
+//
+
 import SwiftUI
 
 struct ContentView: View {
