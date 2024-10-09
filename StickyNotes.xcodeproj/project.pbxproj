@@ -67,11 +67,11 @@
 			);
 			target = 583413A02CB6AB2F005259D6 /* StickyNotes */;
 		};
-		589101872CB6E65600D07B58 /* Exceptions for "StickyNotes" folder in "StickyNotesWidgetExtension" target */ = {
+		589101912CB6F01100D07B58 /* Exceptions for "Note" folder in "StickyNotesWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Note/Note.swift,
-				Note/NotesViewModel.swift,
+				Note.swift,
+				NotesViewModel.swift,
 			);
 			target = 58C528782CB6E06200E360DD /* StickyNotesWidgetExtension */;
 		};
@@ -87,9 +87,6 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		583413A32CB6AB2F005259D6 /* StickyNotes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				589101872CB6E65600D07B58 /* Exceptions for "StickyNotes" folder in "StickyNotesWidgetExtension" target */,
-			);
 			path = StickyNotes;
 			sourceTree = "<group>";
 		};
@@ -101,6 +98,19 @@
 		583413BF2CB6AB33005259D6 /* StickyNotesUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = StickyNotesUITests;
+			sourceTree = "<group>";
+		};
+		5891018C2CB6F01100D07B58 /* Note */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				589101912CB6F01100D07B58 /* Exceptions for "Note" folder in "StickyNotesWidgetExtension" target */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		589101922CB6F09B00D07B58 /* MainScreen */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		58C5287F2CB6E06200E360DD /* StickyNotesWidget */ = {
@@ -151,6 +161,8 @@
 		583413982CB6AB2F005259D6 = {
 			isa = PBXGroup;
 			children = (
+				589101922CB6F09B00D07B58 /* MainScreen */,
+				5891018C2CB6F01100D07B58 /* Note */,
 				583413A32CB6AB2F005259D6 /* StickyNotes */,
 				583413B52CB6AB33005259D6 /* StickyNotesTests */,
 				583413BF2CB6AB33005259D6 /* StickyNotesUITests */,
@@ -199,6 +211,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				583413A32CB6AB2F005259D6 /* StickyNotes */,
+				5891018C2CB6F01100D07B58 /* Note */,
+				589101922CB6F09B00D07B58 /* MainScreen */,
 			);
 			name = StickyNotes;
 			packageProductDependencies = (
