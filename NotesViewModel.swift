@@ -7,14 +7,16 @@
 
 import Foundation
 
+// ViewModel to manage the list of notes
 class NotesViewModel: ObservableObject {
-    // Array to hold the list of notes
+    // Published property to notify views of changes
     @Published var notes: [Note] = []
-
-    // Function to add a new note
-    func addNote(content: String) {
-        let newNote = Note(content: content)
+    
+    // Function to add a new note with a title and content
+    func addNote(title: String, content: String) {
+        // Create a new note instance
+        let newNote = Note(title: title, content: content)
+        // Append the new note to the notes array
         notes.append(newNote)
     }
-
 }
