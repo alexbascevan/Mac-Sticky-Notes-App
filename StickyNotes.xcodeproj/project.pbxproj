@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58C528702CB6C4D400E360DD /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5286F2CB6C4C100E360DD /* NotesViewModel.swift */; };
-		58C528722CB6C50600E360DD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C528712CB6C50400E360DD /* Note.swift */; };
+		58C5287C2CB6E06200E360DD /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C5287B2CB6E06200E360DD /* WidgetKit.framework */; };
+		58C5287E2CB6E06200E360DD /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C5287D2CB6E06200E360DD /* SwiftUI.framework */; };
+		58C5288C2CB6E06400E360DD /* StickyNotesWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 58C528792CB6E06200E360DD /* StickyNotesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,19 +27,69 @@
 			remoteGlobalIDString = 583413A02CB6AB2F005259D6;
 			remoteInfo = StickyNotes;
 		};
+		58C5288A2CB6E06400E360DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 583413992CB6AB2F005259D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58C528782CB6E06200E360DD;
+			remoteInfo = StickyNotesWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58C528912CB6E06400E360DD /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				58C5288C2CB6E06400E360DD /* StickyNotesWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		583413A12CB6AB2F005259D6 /* StickyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		583413B22CB6AB33005259D6 /* StickyNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickyNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		583413BC2CB6AB33005259D6 /* StickyNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickyNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		58C5286F2CB6C4C100E360DD /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
-		58C528712CB6C50400E360DD /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		58C528792CB6E06200E360DD /* StickyNotesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StickyNotesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		58C5287B2CB6E06200E360DD /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		58C5287D2CB6E06200E360DD /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		589101852CB6E63E00D07B58 /* Exceptions for "StickyNotesWidget" folder in "StickyNotes" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				StickyNotesWidget.swift,
+			);
+			target = 583413A02CB6AB2F005259D6 /* StickyNotes */;
+		};
+		589101872CB6E65600D07B58 /* Exceptions for "StickyNotes" folder in "StickyNotesWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Note/Note.swift,
+				Note/NotesViewModel.swift,
+			);
+			target = 58C528782CB6E06200E360DD /* StickyNotesWidgetExtension */;
+		};
+		58C5288D2CB6E06400E360DD /* Exceptions for "StickyNotesWidget" folder in "StickyNotesWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 58C528782CB6E06200E360DD /* StickyNotesWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		583413A32CB6AB2F005259D6 /* StickyNotes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				589101872CB6E65600D07B58 /* Exceptions for "StickyNotes" folder in "StickyNotesWidgetExtension" target */,
+			);
 			path = StickyNotes;
 			sourceTree = "<group>";
 		};
@@ -50,6 +101,15 @@
 		583413BF2CB6AB33005259D6 /* StickyNotesUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = StickyNotesUITests;
+			sourceTree = "<group>";
+		};
+		58C5287F2CB6E06200E360DD /* StickyNotesWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				589101852CB6E63E00D07B58 /* Exceptions for "StickyNotesWidget" folder in "StickyNotes" target */,
+				58C5288D2CB6E06400E360DD /* Exceptions for "StickyNotesWidget" folder in "StickyNotesWidgetExtension" target */,
+			);
+			path = StickyNotesWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,17 +136,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58C528762CB6E06200E360DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58C5287E2CB6E06200E360DD /* SwiftUI.framework in Frameworks */,
+				58C5287C2CB6E06200E360DD /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		583413982CB6AB2F005259D6 = {
 			isa = PBXGroup;
 			children = (
-				58C528712CB6C50400E360DD /* Note.swift */,
-				58C5286F2CB6C4C100E360DD /* NotesViewModel.swift */,
 				583413A32CB6AB2F005259D6 /* StickyNotes */,
 				583413B52CB6AB33005259D6 /* StickyNotesTests */,
 				583413BF2CB6AB33005259D6 /* StickyNotesUITests */,
+				58C5287F2CB6E06200E360DD /* StickyNotesWidget */,
+				58C5287A2CB6E06200E360DD /* Frameworks */,
 				583413A22CB6AB2F005259D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,8 +166,18 @@
 				583413A12CB6AB2F005259D6 /* StickyNotes.app */,
 				583413B22CB6AB33005259D6 /* StickyNotesTests.xctest */,
 				583413BC2CB6AB33005259D6 /* StickyNotesUITests.xctest */,
+				58C528792CB6E06200E360DD /* StickyNotesWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		58C5287A2CB6E06200E360DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58C5287B2CB6E06200E360DD /* WidgetKit.framework */,
+				58C5287D2CB6E06200E360DD /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,10 +190,12 @@
 				5834139D2CB6AB2F005259D6 /* Sources */,
 				5834139E2CB6AB2F005259D6 /* Frameworks */,
 				5834139F2CB6AB2F005259D6 /* Resources */,
+				58C528912CB6E06400E360DD /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				58C5288B2CB6E06400E360DD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				583413A32CB6AB2F005259D6 /* StickyNotes */,
@@ -172,6 +253,28 @@
 			productReference = 583413BC2CB6AB33005259D6 /* StickyNotesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		58C528782CB6E06200E360DD /* StickyNotesWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58C5288E2CB6E06400E360DD /* Build configuration list for PBXNativeTarget "StickyNotesWidgetExtension" */;
+			buildPhases = (
+				58C528752CB6E06200E360DD /* Sources */,
+				58C528762CB6E06200E360DD /* Frameworks */,
+				58C528772CB6E06200E360DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				58C5287F2CB6E06200E360DD /* StickyNotesWidget */,
+			);
+			name = StickyNotesWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = StickyNotesWidgetExtension;
+			productReference = 58C528792CB6E06200E360DD /* StickyNotesWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -193,6 +296,9 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 583413A02CB6AB2F005259D6;
 					};
+					58C528782CB6E06200E360DD = {
+						CreatedOnToolsVersion = 16.0;
+					};
 				};
 			};
 			buildConfigurationList = 5834139C2CB6AB2F005259D6 /* Build configuration list for PBXProject "StickyNotes" */;
@@ -212,6 +318,7 @@
 				583413A02CB6AB2F005259D6 /* StickyNotes */,
 				583413B12CB6AB33005259D6 /* StickyNotesTests */,
 				583413BB2CB6AB33005259D6 /* StickyNotesUITests */,
+				58C528782CB6E06200E360DD /* StickyNotesWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -238,6 +345,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58C528772CB6E06200E360DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -245,8 +359,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58C528702CB6C4D400E360DD /* NotesViewModel.swift in Sources */,
-				58C528722CB6C50600E360DD /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +370,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		583413B82CB6AB33005259D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58C528752CB6E06200E360DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,6 +395,11 @@
 			isa = PBXTargetDependency;
 			target = 583413A02CB6AB2F005259D6 /* StickyNotes */;
 			targetProxy = 583413BD2CB6AB33005259D6 /* PBXContainerItemProxy */;
+		};
+		58C5288B2CB6E06400E360DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58C528782CB6E06200E360DD /* StickyNotesWidgetExtension */;
+			targetProxy = 58C5288A2CB6E06400E360DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -512,6 +636,60 @@
 			};
 			name = Release;
 		};
+		58C5288F2CB6E06400E360DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StickyNotesWidget/StickyNotesWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StickyNotesWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StickyNotesWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abascevan.StickyNotes.StickyNotesWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58C528902CB6E06400E360DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StickyNotesWidget/StickyNotesWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StickyNotesWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StickyNotesWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abascevan.StickyNotes.StickyNotesWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -547,6 +725,15 @@
 			buildConfigurations = (
 				583413CD2CB6AB33005259D6 /* Debug */,
 				583413CE2CB6AB33005259D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58C5288E2CB6E06400E360DD /* Build configuration list for PBXNativeTarget "StickyNotesWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58C5288F2CB6E06400E360DD /* Debug */,
+				58C528902CB6E06400E360DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

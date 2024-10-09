@@ -1,9 +1,3 @@
-//  Note.swift
-//  StickyNotes
-//
-//  Created by Alexander Bascevan on 2024-10-09.
-//
-
 import Foundation
 
 // Model class representing a single note
@@ -15,11 +9,15 @@ class Note: Identifiable, ObservableObject, Hashable, Codable {
     var title: String
     var content: String
     
+    // Add a property to track the note's creation date
+    let dateCreated: Date
+    
     // Initializer to set up a new note with optional title and mandatory content
-    init(title: String = "", content: String) {
+    init(title: String = "", content: String, dateCreated: Date = Date()) {
         self.id = UUID() // Generate a unique ID
         self.title = title // Set the note's title
         self.content = content // Set the note's content
+        self.dateCreated = dateCreated // Set the creation date (default is the current date)
     }
     
     // Hashable protocol requirement: checks equality based on ID

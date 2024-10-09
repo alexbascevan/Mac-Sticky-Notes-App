@@ -11,30 +11,49 @@ struct ContentView: View {
     @State private var newNoteTitle = ""
     @State private var newNoteContent = ""
     
+    // State variable for the search text
+    @State private var searchText = ""
+    
+    // State variable for sorting options
+    @State private var selectedSortOption = "Date Created"
+    
     // Observed object to manage the list of notes
     @ObservedObject var viewModel = NotesViewModel()
     
     // State variable to keep track of the currently selected note
     @State private var selectedNote: Note?
-    
-    // State variable for the search query
-    @State private var searchQuery = ""
 
     var body: some View {
         HStack {
-            // List of notes with titles
+            // Vertical stack for the left sidebar (notes list and sorting options)
             VStack {
                 // Search bar for filtering notes
-                TextField("Search notes...", text: $searchQuery)
+                TextField("Search", text: $searchText)
                     .padding()
                     .border(Color.gray, width: 1)
-                    .foregroundColor(.white)
-                    .padding()
 
-                // Filter notes based on the search query
-                List(viewModel.notes.filter {
-                    searchQuery.isEmpty || $0.title.localizedCaseInsensitiveContains(searchQuery) || $0.content.localizedCaseInsensitiveContains(searchQuery)
-                }, id: \.id, selection: $selectedNote) { note in
+                // Picker for sorting options
+                Picker("Sort by:", selection: $selectedSortOption) {
+                    Text("Date Created").tag("Date Created")
+                    Text("Title").tag("Title")
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+
+                // List of notes with titles
+                List(viewModel.notes.filter { note in
+                    // Filter notes by title or content
+                    searchText.isEmpty || note.title.localizedCaseInsensitiveContains(searchText) || note.content.localizedCaseInsensitiveContains(searchText)
+                }
+                .sorted(by: { note1, note2 in
+                    // Sort notes based on the selected option
+                    switch selectedSortOption {
+                    case "Title":
+                        return note1.title < note2.title
+                    default:
+                        return note1.id < note2.id // Sort by date created (ID)
+                    }
+                }), id: \.id, selection: $selectedNote) { note in
                     VStack(alignment: .leading) {
                         // Display note title; default to "Untitled Note" if empty
                         Text(note.title.isEmpty ? "Untitled Note" : note.title)
@@ -104,6 +123,7 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity) // Allow right section to fill remaining space
         }
+        .navigationTitle("Sticky Notes") // Title for the navigation bar
         .onAppear {
             // Load the last saved note if available when the view appears
             if let lastNote = viewModel.notes.last {
@@ -114,6 +134,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
