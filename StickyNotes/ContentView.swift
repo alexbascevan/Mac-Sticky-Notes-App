@@ -16,12 +16,25 @@ struct ContentView: View {
     
     // State variable to keep track of the currently selected note
     @State private var selectedNote: Note?
+    
+    // State variable for the search query
+    @State private var searchQuery = ""
 
     var body: some View {
-        VStack {
-            HStack {
-                // List of notes with titles
-                List(viewModel.notes, id: \.id, selection: $selectedNote) { note in
+        HStack {
+            // List of notes with titles
+            VStack {
+                // Search bar for filtering notes
+                TextField("Search notes...", text: $searchQuery)
+                    .padding()
+                    .border(Color.gray, width: 1)
+                    .foregroundColor(.white)
+                    .padding()
+
+                // Filter notes based on the search query
+                List(viewModel.notes.filter {
+                    searchQuery.isEmpty || $0.title.localizedCaseInsensitiveContains(searchQuery) || $0.content.localizedCaseInsensitiveContains(searchQuery)
+                }, id: \.id, selection: $selectedNote) { note in
                     VStack(alignment: .leading) {
                         // Display note title; default to "Untitled Note" if empty
                         Text(note.title.isEmpty ? "Untitled Note" : note.title)
@@ -46,52 +59,50 @@ struct ContentView: View {
                         }
                     }
                 }
-                .frame(width: 200) // Fixed width for the note list
-
-                // Right section for the note editor
-                VStack {
-                    // Text field for editing the note title
-                    TextField("Title", text: $newNoteTitle)
-                        .padding()
-                        .border(Color.gray, width: 1)
-                        .foregroundColor(.white) // Set text color to white
-
-                    // Text editor for editing the note content
-                    TextEditor(text: $newNoteContent)
-                        .padding()
-                        .border(Color.gray, width: 1)
-                        .foregroundColor(.white) // Set text color to white
-                        .opacity(viewModel.notes.isEmpty && selectedNote == nil ? 0.6 : 1) // Dim if empty
-
-                    // Button to save the note
-                    Button(action: {
-                        if let selectedNote = selectedNote {
-                            // Update the selected note's title and content
-                            selectedNote.title = newNoteTitle.isEmpty ? newNoteContent.split(separator: "\n").first?.description ?? "Untitled Note" : newNoteTitle
-                            selectedNote.content = newNoteContent
-                        } else if !newNoteContent.isEmpty {
-                            // Add a new note with the specified title and content
-                            let noteTitle = newNoteTitle.isEmpty ? newNoteContent.split(separator: "\n").first?.description ?? "Untitled Note" : newNoteTitle
-                            viewModel.addNote(title: noteTitle, content: newNoteContent)
-                        }
-
-                        // Clear the editor for a new note
-                        selectedNote = nil
-                        newNoteTitle = ""
-                        newNoteContent = ""
-                    }) {
-                        // Save Note button appearance
-                        Text("Save Note")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                    .padding()
-                }
-                .frame(maxWidth: .infinity) // Allow right section to fill remaining space
+                .frame(minWidth: 200) // Minimum width for the note list
             }
-            .navigationTitle("Sticky Notes") // Title for the navigation bar
+
+            VStack {
+                // Text field for editing the note title
+                TextField("Title", text: $newNoteTitle)
+                    .padding()
+                    .border(Color.gray, width: 1)
+                    .foregroundColor(.white) // Set text color to white
+
+                // Text editor for editing the note content
+                TextEditor(text: $newNoteContent)
+                    .padding()
+                    .border(Color.gray, width: 1)
+                    .foregroundColor(.white) // Set text color to white
+                    .opacity(viewModel.notes.isEmpty && selectedNote == nil ? 0.6 : 1) // Dim if empty
+
+                // Button to save the note
+                Button(action: {
+                    if let selectedNote = selectedNote {
+                        // Update the selected note's title and content
+                        selectedNote.title = newNoteTitle.isEmpty ? newNoteContent.split(separator: "\n").first?.description ?? "Untitled Note" : newNoteTitle
+                        selectedNote.content = newNoteContent
+                    } else if !newNoteContent.isEmpty {
+                        // Add a new note with the specified title and content
+                        let noteTitle = newNoteTitle.isEmpty ? newNoteContent.split(separator: "\n").first?.description ?? "Untitled Note" : newNoteTitle
+                        viewModel.addNote(title: noteTitle, content: newNoteContent)
+                    }
+
+                    // Clear the editor for a new note
+                    selectedNote = nil
+                    newNoteTitle = ""
+                    newNoteContent = ""
+                }) {
+                    // Save Note button appearance
+                    Text("Save Note")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .padding()
+            }
+            .frame(maxWidth: .infinity) // Allow right section to fill remaining space
         }
         .onAppear {
             // Load the last saved note if available when the view appears
@@ -106,6 +117,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().navigationTitle("Sticky Notes") // Title for the navigation bar
+        ContentView().navigationTitle("Sticky Notes")
     }
 }
