@@ -10,10 +10,10 @@ Welcome to the **Sticky Notes App**! This is a simple and user-friendly applicat
 - **Sorting Options**: Organize your notes by title or date created.
 
 ## Screenshots
-![Screenshot 1](resources/1.png)
-![Screenshot 2](resources/2.png)
-![Screenshot 3](resources/3.png)
-![Screenshot 4](resources/4.png)
+![Screenshot 1](/resources/1.png)
+![Screenshot 2](/resources/2.png)
+![Screenshot 3](/resources/3.png)
+![Screenshot 4](/resources/4.png)
 
 ## Requirements
 - **Xcode**: Version 14.0 or later
