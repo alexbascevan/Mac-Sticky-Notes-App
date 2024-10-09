@@ -1,9 +1,3 @@
-//  ContentView.swift
-//  StickyNotes
-//
-//  Created by Alexander Bascevan on 2024-10-09.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -18,7 +12,7 @@ struct ContentView: View {
     @State private var selectedNote: Note?
 
     var body: some View {
-        NavigationView {
+        VStack {
             HStack {
                 // List of notes with titles
                 List(viewModel.notes, id: \.id, selection: $selectedNote) { note in
@@ -46,8 +40,9 @@ struct ContentView: View {
                         }
                     }
                 }
-                .frame(minWidth: 200) // Minimum width for the note list
+                .frame(width: 200) // Fixed width for the note list
 
+                // Right section for the note editor
                 VStack {
                     // Text field for editing the note title
                     TextField("Title", text: $newNoteTitle)
@@ -105,6 +100,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView() // Preview the ContentView
+        ContentView().navigationTitle("Sticky Notes") // Title for the navigation bar
     }
 }
