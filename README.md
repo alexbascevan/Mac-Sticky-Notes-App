@@ -9,12 +9,6 @@ Welcome to the **Sticky Notes App**! This is a simple and user-friendly applicat
 - **Search Functionality**: Quickly find notes using the search bar.
 - **Sorting Options**: Organize your notes by title or date created.
 
-## Screenshots
-![Screenshot 1](Resources/1.png)
-![Screenshot 2](Resources/2.png)
-![Screenshot 3](Resources/3.png)
-![Screenshot 4](Resources/4.png)
-
 ## Requirements
 - **Xcode**: Version 14.0 or later
 - **iOS**: 15.0 or later
@@ -57,3 +51,23 @@ If you'd like to contribute to the Sticky Notes App, please follow these steps:
    git push origin feature/YourFeature
    ```
 5. Open a pull request.
+
+## Screenshots
+![Screenshot 1](Resources/1.png)
+
+Screenshot 1: Home screen with a single note.
+
+
+![Screenshot 2](Resources/2.png)
+
+Screenshot 2: Several notes created and saved.
+
+
+![Screenshot 3](Resources/3.png)
+
+Screenshot 3: Four notes saved and sorted by creation date.
+
+
+![Screenshot 4](Resources/4.png)
+
+Screenshot 4: All four notes sorted alphabetically by title.
